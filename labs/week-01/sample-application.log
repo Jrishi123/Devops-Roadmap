@@ -1,0 +1,5 @@
+2026-11-05T09:00:00Z INFO Application started
+2026-11-05T09:01:12Z WARN Cache latency elevated
+2026-11-05T09:02:45Z ERROR Database connection failed
+2026-11-05T09:03:10Z INFO Retry scheduled
+2026-11-05T09:04:22Z CRITICAL Database pool exhausted

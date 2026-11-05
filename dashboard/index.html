@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1220">
+  <title>DevOps + AI | 30-Day Bootcamp</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">DA</div>
+        <div><strong>DevOps + AI</strong><span>30-Day Bootcamp</span></div>
+      </div>
+      <nav class="nav">
+        <a class="nav-link active" href="#overview" data-view="overview"><span>▦</span> Overview</a>
+        <a class="nav-link" href="#roadmap" data-view="roadmap"><span>☷</span> Daily roadmap</a>
+        <a class="nav-link" href="#milestones" data-view="milestones"><span>◈</span> Weekly milestones</a>
+        <a class="nav-link" href="#capstone" data-view="capstone"><span>⌘</span> Capstone project</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="storage-note"><span class="status-dot"></span><div><b>Local progress storage</b><small>Saved in this browser</small></div></div>
+        <button class="side-action" id="exportBtn">⇩ Export progress</button>
+        <label class="side-action import-label">⇧ Import progress<input type="file" id="importInput" accept="application/json"></label>
+        <button class="side-action danger-text" id="resetBtn">↺ Reset progress</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div><div class="eyebrow">YOUR LEARNING WORKSPACE</div><h1 id="pageTitle">Overview</h1></div>
+        <div class="top-actions"><span class="date-chip" id="todayLabel"></span><button class="primary-btn" id="continueBtn">Continue learning <span>→</span></button></div>
+      </header>
+
+      <section class="view active" id="overviewView">
+        <div class="welcome-card">
+          <div><div class="eyebrow light">30 DAYS · 4 WEEKS · ONE CAPSTONE</div><h2>Build skills. Ship projects.<br><em>Become AI-ready.</em></h2><p>A hands-on DevOps + AI learning journey. Learn, practice, track, and publish your work.</p></div>
+          <div class="welcome-orbit"><div class="orbit-ring"></div><div class="orbit-core">30<span>DAYS</span></div><i class="orbit-dot dot-a"></i><i class="orbit-dot dot-b"></i><i class="orbit-dot dot-c"></i></div>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-label">Overall progress <span>↗</span></div><div class="stat-value" id="progressPercent">0%</div><div class="progress-track"><div class="progress-fill" id="overallBar"></div></div><small id="completedLabel">0 of 30 days completed</small></article>
+          <article class="stat-card"><div class="stat-label">Study time <span>◷</span></div><div class="stat-value"><span id="hoursValue">0</span><small class="unit"> hrs</small></div><div class="progress-track"><div class="progress-fill cyan" id="hoursBar"></div></div><small>Target: 90–120 hours</small></article>
+          <article class="stat-card"><div class="stat-label">Current streak <span>✦</span></div><div class="stat-value"><span id="streakValue">0</span><small class="unit"> days</small></div><small>Based on completed learning days</small></article>
+          <article class="stat-card"><div class="stat-label">In progress <span>◌</span></div><div class="stat-value" id="inProgressValue">0</div><small id="notStartedLabel">30 days not started</small></article>
+        </div>
+
+        <div class="content-grid">
+          <section class="panel roadmap-panel">
+            <div class="panel-heading"><div><div class="eyebrow">YOUR CURRICULUM</div><h3>Weekly roadmap</h3></div><button class="text-btn" data-go="roadmap">View all days →</button></div>
+            <div id="weekCards" class="week-cards"></div>
+          </section>
+          <section class="panel next-panel">
+            <div class="panel-heading"><div><div class="eyebrow">UP NEXT</div><h3>Continue your journey</h3></div><span class="sparkle">✦</span></div>
+            <div id="nextDayCard"></div>
+          </section>
+        </div>
+        <section class="panel recent-panel"><div class="panel-heading"><div><div class="eyebrow">ACTIVITY</div><h3>Learning progress</h3></div><span class="muted" id="activitySummary">No completed days yet</span></div><div id="activityList" class="activity-list"></div></section>
+      </section>
+
+      <section class="view" id="roadmapView">
+        <div class="section-intro"><div><div class="eyebrow">30-DAY CURRICULUM</div><h2>Daily roadmap</h2><p>Open any day to track your lesson, practical lab, assignment and checkpoint.</p></div><div class="roadmap-count" id="roadmapCount">0 / 30 completed</div></div>
+        <div class="filter-row">
+          <input id="searchInput" class="search-input" type="search" placeholder="Search topics, tools or skills…">
+          <select id="weekFilter"><option value="all">All weeks</option><option value="1">Week 1</option><option value="2">Week 2</option><option value="3">Week 3</option><option value="4">Week 4</option></select>
+          <select id="statusFilter"><option value="all">All statuses</option><option value="not-started">Not started</option><option value="in-progress">In progress</option><option value="completed">Completed</option></select>
+        </div>
+        <div id="dayList" class="day-list"></div>
+      </section>
+
+      <section class="view" id="milestonesView">
+        <div class="section-intro"><div><div class="eyebrow">FOUR LEARNING PHASES</div><h2>Weekly milestones</h2><p>Measure progress across the complete learning journey.</p></div></div>
+        <div id="milestoneCards" class="milestone-grid"></div>
+      </section>
+
+      <section class="view" id="capstoneView">
+        <div class="section-intro"><div><div class="eyebrow">FINAL PORTFOLIO PROJECT</div><h2>AI-Powered DevOps Assistant</h2><p>Build an assistant that analyzes application logs and answers operational questions using trusted runbooks.</p></div></div>
+        <div class="capstone-hero"><div class="capstone-icon">✧</div><div><h3>From logs to actionable insight</h3><p>Next.js · FastAPI · LLM API · RAG · Docker · Kubernetes · CI/CD · Observability</p></div></div>
+        <div class="capstone-layout"><div class="panel"><div class="panel-heading"><div><div class="eyebrow">DELIVERY CHECKLIST</div><h3>Project milestones</h3></div><span id="capstoneProgress" class="pill">0 / 10</span></div><div id="capstoneTasks" class="checklist"></div></div>
+        <div class="panel project-notes"><div class="eyebrow">PROJECT NOTES</div><h3>Architecture & decisions</h3><textarea id="capstoneNotes" placeholder="Record architecture decisions, deployment notes, demo link, blockers and lessons learned…"></textarea><small>Notes are saved automatically in this browser.</small></div></div>
+      </section>
+      <footer>Built for consistent practice · <span>Progress stays in this browser until you export it.</span></footer>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="dayModal" aria-hidden="true">
+    <div class="modal">
+      <div class="modal-top"><div><div class="eyebrow" id="modalEyebrow">DAY 01</div><h2 id="modalTitle">Linux Fundamentals</h2></div><button class="icon-btn" id="closeModal" aria-label="Close">×</button></div>
+      <p class="modal-summary" id="modalSummary"></p>
+      <div class="modal-controls"><label>Status<select id="dayStatus"><option value="not-started">Not started</option><option value="in-progress">In progress</option><option value="completed">Completed</option></select></label><label>Study hours<input type="number" id="dayHours" min="0" max="24" step="0.25" placeholder="e.g. 3"></label><label>Quiz score / 10<input type="number" id="dayQuiz" min="0" max="10" step="1" placeholder="—"></label></div>
+      <div class="modal-columns"><div><h4>Learning objectives</h4><ul id="modalObjectives"></ul><h4>Practical lab</h4><div id="modalLabs" class="modal-checks"></div></div><div><h4>Assignment deliverables</h4><div id="modalDeliverables" class="modal-checks"></div><h4>Checkpoint</h4><div class="checkpoint-box" id="modalCheckpoint"></div></div></div>
+      <label class="notes-label">Daily notes<textarea id="dayNotes" placeholder="What did you learn? What failed? Add your GitHub commit or evidence link…"></textarea></label>
+      <div class="modal-footer"><span id="saveHint">Changes save automatically.</span><button class="primary-btn" id="saveDayBtn">Save day <span>✓</span></button></div>
+    </div>
+  </div>
+  <script src="days.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
